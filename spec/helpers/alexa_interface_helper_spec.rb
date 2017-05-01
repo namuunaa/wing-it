@@ -82,10 +82,20 @@ describe AlexaInterfaceHelper do
 
     it "adds an @speech attribute after the add_speech method is run" do
       format_speech_for_alexa(response, event)
-      expect(response.speech[:text]).to eq("Hamilton is happening at DBC starting at  6:00 PM")
+      time = time_until(DateTime.parse(event['start_time']))
+      expect(response.speech[:text]).to eq("Hamilton is happening at DBC starting at  6:00 PM. You have #{time} to get ready.")
     end
   end
 
+  describe '#time_until' do
+    let(:start_time) do 
+      DateTime.now + 1.hour + 25.minutes
+    end
+
+    it 'displays time left till the event' do
+      expect(time_until(start_time)).to eq("1 hours and 25 minutes")
+    end
+  end
   describe '#format_html_text_to_string' do
     let(:html_text) do
       "<br>Souvenir is his band&#39;s most expansive album to date, dishing up everything from the West Coast<br>country-rock of &quot;California&quot; to the front-porch folk of &quot;Mama Sunshine, Daddy&#39;s Rain.&quot;"

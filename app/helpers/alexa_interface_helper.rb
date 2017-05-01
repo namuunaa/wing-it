@@ -41,13 +41,25 @@ module AlexaInterfaceHelper
     ten_events.first
   end
 
+  # Takes the start time of the event and substracts from Time.now, to show hours until format
+  def time_until(event_start_date)
+    current_time = DateTime.now
+    current_total_minute = current_time.hour * 60 + current_time.minute
+    event_total_minute = event_start_date.hour * 60 + event_start_date.minute
+    time_until = event_total_minute - current_total_minute
+    hour_until = time_until / 60
+    minute_until = time_until % 60
+    "#{hour_until} hours and #{minute_until} minutes"
+  end
+
   # use the alexa gem to add speech to response for alexa. doesn't need return as it's just side effects we want
   def format_speech_for_alexa(response_for_alexa, single_event)
     event_name = single_event['title']
     venue_name = single_event['venue_name']
     start_date = single_event['start_time']
     start_time = DateTime.parse(start_date).strftime('%l:%M %p')
-    response_for_alexa.add_speech("#{event_name} is happening at #{venue_name} starting at #{start_time}")
+    time_until = time_until(DateTime.parse(start_date))
+    response_for_alexa.add_speech("#{event_name} is happening at #{venue_name} starting at #{start_time}. You have #{time_until} to get ready.")
   end
 
   # use the alexa gem to add text cards to give to alexa's companion app. doesn't need return as it's just side effects we want
