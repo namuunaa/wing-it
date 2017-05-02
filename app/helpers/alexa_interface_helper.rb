@@ -14,9 +14,9 @@ module AlexaInterfaceHelper
 
   # Make an api call to eventful and return an array of events (probably super huge long awful list)
   def call(call_parameters={})
-    # page size is 10 for testing; should be ~1000 for production
+    # page size is 10 for testing; should be ~500 for production
     if Rails.env.production?
-      page_size = "1000"
+      page_size = "500"
     else
       page_size = "10"
     end
@@ -33,9 +33,13 @@ module AlexaInterfaceHelper
 
   #limit the selection to events that have not yet started or are all-day events
   def select_not_started(call_list)
-    call_list.select do |event|
-      Time.parse(event["start_time"]).future? || event["all_day"] != "0"
+    call_list = call_list.select do |event|
+      event["all_day"] && event["start_time"]
     end
+    call_list = call_list.select do |event|
+      event["all_day"] != "0" || Time.parse(event["start_time"]).future?
+    end
+    call_list
   end
 
   # Run call, then select ten of the call items. Returns array with length 10 or less
