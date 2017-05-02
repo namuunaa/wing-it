@@ -1,6 +1,7 @@
 class AlexaInterfaceController < ApplicationController
   def recommend
     respond_to do |f|
+
       f.json do
         if params["request"]["intent"]
           case params["request"]["intent"]["name"]
@@ -13,7 +14,7 @@ class AlexaInterfaceController < ApplicationController
             @user = User.find_or_initialize_by(user_id: user_id)
             @user.city = city
             @user.save
-            render json: build_city_set_response(user)
+            render json: build_city_set_response(@user)
           end
         else
           render json: create_response(get_location)
