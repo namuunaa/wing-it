@@ -6,20 +6,17 @@
 <img src= "app/assets/images/tonite_512_round.png" alt="tonite logo" align="center">
 </p>
 
-**Tonite** is an event recommendation app that allows users to use Alexa to find an
-event going on today for a spontaneous outing.
+**Tonite** is an Alexa Skill that allows users to find an event going on tonight(today) for a spontaneous outing.
 
 By connecting users with events and experiences they might never have sought out on their own, we encourage them to embrace serendipity and discover a new side of their city.
 
 ## Basic Use
 
 Add the skill _Tonite_ to your Alexa account.
-
-<img src= "app/assets/images/skill.png" alt="add skill" width="400" height="600">   <img src= "app/assets/images/top_event.png" alt="top skill" width="400" height="600">
-
-Skill Page: A screenshot of the Skill page for our app on the Amazon Alexa app Skills section. | Event Card: A screenshot of an example output from the text portion of our response to a user.
-
 Say "Alexa, ask Tonite for something to do."
+
+<img src="app/assets/images/skill_portrait.png" alt="add skill" width="234" height="480" hspace="50"> <img src="app/assets/images/top_event_portrait.png" alt="top events card" width="234" height="480">
+<p><i>View of our skill on Amazon Alexa Skill | Text response from Alexa showing top events</i></p> 
 
 ## Installing / Getting Started
 
