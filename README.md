@@ -14,8 +14,12 @@ By connecting users with events and experiences they might never have sought out
 
 Add the skill _Tonite_ to your Alexa account.
 Say "Alexa, ask Tonite for something to do."
-
-<figure><img src= "app/assets/images/skill_portrait.png" alt="add skill" width="234" height="480"><figcaption>View of our skill on Amazon Alexa Skill </figcaption></figure>  <figure><img src= "app/assets/images/top_event_portrait.png" alt="top events card" width="234" height="480"><figcaption>Text response from Alexa showing top events</figcaption></figure>
+<div style="display: inline-block;">
+  <figure><img src= "app/assets/images/skill_portrait.png" alt="add skill" width="234" height="480" ><figcaption>View of our skill on Amazon Alexa Skill </figcaption>
+</div>
+<div style="display: inline-block;">
+  </figure><figure><img src= "app/assets/images/top_event_portrait.png" alt="top events card" width="234" height="480"><figcaption>Text response from Alexa showing top events</figcaption></figure>
+</div>
 
 ## Installing / Getting Started
 
